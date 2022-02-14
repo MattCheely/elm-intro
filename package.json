@@ -11,7 +11,7 @@
   "scripts": {
     "start": "elm-live ./src/Main.elm ./src/AnnotatedCounter.elm ./src/AnnotatedGif.elm --dir=./public -- --output=./public/elm.js",
     "dev": "elm-live ./src/Main.elm ./src/AnnotatedCounter.elm ./src/AnnotatedGif.elm --hot --dir=./public -- --debug --output=./public/elm.js",
-    "build": "elm make ./src/Main.elm ./src/AnnotatedCounter.elm ./src/AnnotatedGif.elm --optimize --output=./public/elm.js"
+    "build": "elm make ./src/Main.elm ./src/AnnotatedCounter.elm ./src/AnnotatedGif.elm --optimize --output=./public/elm.js && cp -r public dist"
   },
   "author": "",
   "license": "MIT"
