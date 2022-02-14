@@ -1,0 +1,18 @@
+{
+  "name": "elm-intro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "elm": "^0.19.1-5",
+    "elm-json": "^0.2.12",
+    "elm-live": "^4.0.2"
+  },
+  "scripts": {
+    "start": "elm-live ./src/Main.elm ./src/AnnotatedCounter.elm ./src/AnnotatedGif.elm --dir=./public -- --output=./public/elm.js",
+    "dev": "elm-live ./src/Main.elm ./src/AnnotatedCounter.elm ./src/AnnotatedGif.elm --hot --dir=./public -- --debug --output=./public/elm.js",
+    "build": "elm make ./src/Main.elm ./src/AnnotatedCounter.elm ./src/AnnotatedGif.elm --optimize --output=./public/elm.js"
+  },
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,15 @@
+<head>
+    <link href="iosevka/webfont.css" type="text/css" rel="stylesheet">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <link href="highlightjs/styles/base16/atelier-seaside.min.css" type="text/css" rel="stylesheet">
+    <script src="highlightjs/highlight.min.js"></script>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script src="elm.js"></script>
+    <script>
+        var node = document.getElementById('main');
+        var app = Elm.Main.init({ node: node });
+    </script>
+</body>
