@@ -2,8 +2,8 @@ module AnnotatedGif exposing (..)
 
 import Browser
 import GifProgram
-import Html exposing (Html, div, text)
-import Html.Attributes exposing (class, classList)
+import Html exposing (Html, a, div, text)
+import Html.Attributes exposing (class, classList, href)
 import Json.Decode as Decode
 import Svg exposing (Svg, animate, animateMotion, circle, ellipse, g, marker, mpath, path, polygon, rect, svg)
 import Svg.Attributes
@@ -207,7 +207,8 @@ view model =
             [ Html.map (ProgMsg << ViewMsg) <| GifProgram.view model.simpleProgramState
             ]
         , div [ class "footnote" ]
-            [ div [] [ text "Go easy. I didn't make all of the impossible states impossible." ]
+            [ div [] [ a [ href "https://bugs.webkit.org/show_bug.cgi?id=63727" ] [ text "This demo only works in firefox" ] ]
+            , div [] [ text "Go easy. I didn't make all of the impossible states impossible." ]
             , div [] [ text "You can break the demo by spamming the button with clicks." ]
             , div [] [ text "For some reason, it's the first thing everyone tries! 😅" ]
             ]

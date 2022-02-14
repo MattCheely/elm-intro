@@ -1,8 +1,8 @@
 module AnnotatedCounter exposing (..)
 
 import Browser
-import Html exposing (Html, div, text)
-import Html.Attributes exposing (class, classList)
+import Html exposing (Html, a, div, text)
+import Html.Attributes exposing (class, classList, href)
 import Json.Decode as Decode
 import SimpleProgram
 import Svg exposing (Svg, animate, animateMotion, circle, ellipse, g, marker, mpath, path, rect, svg)
@@ -150,6 +150,8 @@ view model =
         , div [ class "app-embed" ]
             [ Html.map ProgMsg <| SimpleProgram.view model.simpleProgramState
             ]
+        , div [ class "footnote" ]
+            [ a [ href "https://bugs.webkit.org/show_bug.cgi?id=63727" ] [ text "This demo only works in firefox" ] ]
         ]
 
 
