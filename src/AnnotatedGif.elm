@@ -167,7 +167,7 @@ update msg model =
 
 
 onEnd msg =
-    Svg.Events.on "end" (Decode.succeed msg)
+    Svg.Events.on "endEvent" (Decode.succeed msg)
 
 
 view : Model -> Html Msg
@@ -207,8 +207,7 @@ view model =
             [ Html.map (ProgMsg << ViewMsg) <| GifProgram.view model.simpleProgramState
             ]
         , div [ class "footnote" ]
-            [ div [] [ a [ href "https://bugs.webkit.org/show_bug.cgi?id=63727" ] [ text "This demo only works in firefox" ] ]
-            , div [] [ text "Go easy. I didn't make all of the impossible states impossible." ]
+            [ div [] [ text "Go easy. I didn't make all of the impossible states impossible." ]
             , div [] [ text "You can break the demo by spamming the button with clicks." ]
             , div [] [ text "For some reason, it's the first thing everyone tries! 😅" ]
             ]
