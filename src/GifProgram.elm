@@ -40,6 +40,11 @@ notFoundImg =
     "https://media.giphy.com/media/26xBIygOcC3bAWg3S/giphy.gif"
 
 
+loadingImg : String
+loadingImg =
+    "https://media.giphy.com/media/W22b2eea2XxB6DiTWg/giphy.gif"
+
+
 searchDecoder : Decoder String
 searchDecoder =
     Decode.at [ "data", "images", "fixed_height_small", "url" ] Decode.string
@@ -58,7 +63,7 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         Search ->
-            ( model, catSearch )
+            ( { model | imgUrl = loadingImg }, catSearch )
 
         SearchResults result ->
             let

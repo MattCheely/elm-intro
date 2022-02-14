@@ -2,7 +2,7 @@ module AnnotatedCounter exposing (..)
 
 import Browser
 import Html exposing (Html, div, text)
-import Html.Attributes exposing (class)
+import Html.Attributes exposing (class, classList)
 import Json.Decode as Decode
 import SimpleProgram
 import Svg exposing (Svg, animate, animateMotion, circle, ellipse, g, marker, mpath, path, rect, svg)
@@ -120,7 +120,11 @@ onEnd msg =
 
 view : Model -> Html Msg
 view model =
-    div [ class "explainer" ]
+    let
+        isAnimating =
+            not (List.isEmpty model.pendingMessages)
+    in
+    div [ classList [ ( "explainer", True ), ( "animating", isAnimating ) ] ]
         [ div [ class "elm-architecture" ]
             ([ svg [ width "100%", height "100%", viewBox "0 0 1000 1200", preserveAspectRatio "xMidYMid" ]
                 [ arrowHead

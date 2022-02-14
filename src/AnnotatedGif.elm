@@ -3,7 +3,7 @@ module AnnotatedGif exposing (..)
 import Browser
 import GifProgram
 import Html exposing (Html, div, text)
-import Html.Attributes exposing (class)
+import Html.Attributes exposing (class, classList)
 import Json.Decode as Decode
 import Svg exposing (Svg, animate, animateMotion, circle, ellipse, g, marker, mpath, path, polygon, rect, svg)
 import Svg.Attributes
@@ -172,7 +172,11 @@ onEnd msg =
 
 view : Model -> Html Msg
 view model =
-    div [ class "explainer" ]
+    let
+        isAnimating =
+            not (List.isEmpty model.pendingMessages)
+    in
+    div [ classList [ ( "explainer", True ), ( "animating", isAnimating ) ] ]
         [ div [ class "elm-architecture" ]
             ([ svg [ width "100%", height "100%", viewBox "0 0 1000 1200", preserveAspectRatio "xMidYMid" ]
                 [ arrowHead
@@ -201,6 +205,11 @@ view model =
             )
         , div [ class "app-embed" ]
             [ Html.map (ProgMsg << ViewMsg) <| GifProgram.view model.simpleProgramState
+            ]
+        , div [ class "footnote" ]
+            [ div [] [ text "Go easy. I didn't make all of the impossible states impossible." ]
+            , div [] [ text "You can break the demo by spamming the button with clicks." ]
+            , div [] [ text "For some reason, it's the first thing everyone tries! 😅" ]
             ]
         ]
 
