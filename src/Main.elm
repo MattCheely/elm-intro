@@ -240,11 +240,12 @@ main =
             """
         ```elm
         -- Custom types simplify logic, and avoid implicit behaviors
-        -- Good for makin impossible states impossible
+        -- Key to making impossible states impossible
         userView : RemoteData Http.Error User -> Html msg
         userView userRequest =
             case userRequest of
 
+                -- Compiler will error if any case is not handled
                 NotAsked ->
                     button [ onClick LoadUser ]
                         [ text "Click to load user" ]
